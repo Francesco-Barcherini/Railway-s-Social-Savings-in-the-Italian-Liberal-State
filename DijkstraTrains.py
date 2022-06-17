@@ -4,11 +4,11 @@ import heapq
 from numpy import Inf
 
 tr = []
-with open("trunks.csv","r") as trunks:
+with open("./InputDataset/trunks.csv","r") as trunks:
     tr = trunks.readlines()
 
 sh = []
-with open("ship.csv","r") as ships:
+with open("./InputDataset/ship.csv","r") as ships:
     sh = ships.readlines()
 
 #list of all stations
@@ -69,7 +69,7 @@ def dijkstra(graph, root, year):
             newCost += costTrunk(t,yearIndex[year],l)
             #change of mean of transport --> fix costs
             if prec[u][1] != t:
-                newCost += costs[t][yearIndex[year]][0]
+                newCost += costs[t][yearIndex[year]][1]
 
             if newCost < oldCost:
                 prec[next] = [u,t]
@@ -80,7 +80,7 @@ def dijkstra(graph, root, year):
                 dist[next][t] += l
                 costDist[next][t] += costTrunk(t,yearIndex[year],l)
                 if prec[u][1] != t:
-                    costDist[next][t] += costs[t][yearIndex[year]][0]
+                    costDist[next][t] += costs[t][yearIndex[year]][1]
                 
                 costDistTot = 0
                 for m in range(3):
@@ -127,7 +127,7 @@ for year in years:
         graph[statIndex[s2]].append([statIndex[s1],l,1])
 
     ##USES RAILWAYS
-    with open(f"connections{year}.csv","w") as output:
+    with open(f"./OutputData/connections{year}.csv","w") as output:
 
         output.write(str(year)+";;;\n")
 
@@ -151,7 +151,10 @@ for year in years:
 
 
     ## DOES NOT USE RAILWAYS
-    # with open(f"connectionsNoRail.csv","a") as output:
+    ## !change t = 2 in the above code!
+    # with open(f"./OutputData/connectionsNoRail.csv","w") as output:
+    #     abc = 1
+    # with open(f"./OutputData/connectionsNoRail.csv","a") as output:
 
     #     output.write(str(year))
 
