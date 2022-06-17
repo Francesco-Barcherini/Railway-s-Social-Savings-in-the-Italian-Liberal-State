@@ -39,7 +39,7 @@ mainUpper = []
 #after clean
 mainStations = []
 mainIndex = {}
-with open("/InputDataset/mainStations.csv","r") as f:
+with open("./InputDataset/mainStations.csv","r") as f:
     s = f.readlines()
     for l in range(len(s)):
         line = s[l]
