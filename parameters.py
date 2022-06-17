@@ -25,7 +25,7 @@ means = ['R','S','RR']#railway, ship, regular road
 
 #fix and variable costs
 costs = np.zeros((len(means),len(years),2))
-with open("costs.csv") as f:
+with open("./InputDataset/costs.csv") as f:
     s = f.readlines()
     for m in range(len(means)):
         for mode in range(2):
@@ -39,7 +39,7 @@ mainUpper = []
 #after clean
 mainStations = []
 mainIndex = {}
-with open("mainStations.csv","r") as f:
+with open("/InputDataset/mainStations.csv","r") as f:
     s = f.readlines()
     for l in range(len(s)):
         line = s[l]
