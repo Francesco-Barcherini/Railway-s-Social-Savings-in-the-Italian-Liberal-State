@@ -91,6 +91,7 @@ def dijkstra(graph, root, year):
     return dist
 
 nStaz = len(stations)
+clearNoRail = True
 
 #iterate through years
 for year in years:
@@ -152,8 +153,10 @@ for year in years:
 
     ## DOES NOT USE RAILWAYS
     ## !change t = 2 in the above code!
-    # with open(f"./OutputData/connectionsNoRail.csv","w") as output:
-    #     abc = 1
+    # if clearNoRail:
+    #     with open(f"./OutputData/connectionsNoRail.csv","w") as output:
+    #         abc = 1
+    #     clearNoRail = False
     # with open(f"./OutputData/connectionsNoRail.csv","a") as output:
 
     #     output.write(str(year))
