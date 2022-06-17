@@ -50,8 +50,4 @@ with open("mainStations.csv","r") as f:
 
 #length * cost
 def costTrunk(m,y,l):
-    return l*costs[m][y][1]
-
-##DOES NOT USE RAILWAYS
-# with open(f"connectionsNoRail.csv","w") as output:
-#     a = 1
+    return l*costs[m][y][0]
